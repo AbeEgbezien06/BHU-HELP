@@ -12,7 +12,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class ComplaintSerializer(serializers.ModelSerializer):
-    category = CategorySerializer(many=True, read_only=True)
+    category = CategorySerializer(many=True)
     class Meta:
         model = Complaint
         fields = ('id',

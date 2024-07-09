@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+<<<<<<< HEAD
 class Profile(models.Model):
      user = models.OneToOneField("User", verbose_name=_("User"), on_delete=models.CASCADE)
      room_number = models.CharField(max_length=15, blank=True, null=True)
@@ -13,6 +14,15 @@ class Profile(models.Model):
      def __str__(self):
          return self.user.username
 
+=======
+
+
+class CategoryComplaint(models.Model):
+    cat_name = models.CharField(max_length=80)
+
+    def __str__(self):
+        return self.cat_name
+>>>>>>> 1874b081e1381fe943dbb56bd6a46d380cceedea
 class Complaint(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=255)
