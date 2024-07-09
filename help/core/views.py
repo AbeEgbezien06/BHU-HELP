@@ -9,6 +9,6 @@ from .serializers import *
 
 class complaint(APIView):
     def get(self, request, format=None):
-        complaints = Complaint.objects.all()
-        serializer = ComplaintSerializer(complaints)
+        complaint = Complaint.objects.all()
+        serializer = ComplaintSerializer(complaint)
         return Response(serializer.data)
