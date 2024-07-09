@@ -40,7 +40,10 @@ INSTALLED_APPS = [
 
     # rest auth
     'rest_framework',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+
+    # apps
+    'core'
     
 ]
 
