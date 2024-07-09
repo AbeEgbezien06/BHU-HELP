@@ -10,5 +10,5 @@ from .serializers import *
 class complaint(APIView):
     def get(self, request, format=None):
         complaint = Complaint.objects.all()
-        serializer = ComplaintSerializer(complaint)
+        serializer = ComplaintSerializer(complaint, many=True)
         return Response(serializer.data)

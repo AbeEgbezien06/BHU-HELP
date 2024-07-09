@@ -7,7 +7,7 @@ from .models import CategoryComplaint, Complaint
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = CategoryComplaint
-        fields = ('id', 'name')   
+        fields = ('name')   
 
 
 
@@ -15,8 +15,7 @@ class ComplaintSerializer(serializers.ModelSerializer):
     category = CategorySerializer(many=True)
     class Meta:
         model = Complaint
-        fields = ('id',
-                  'name',
+        fields = ('name',
                   'description',
                   'category',
                   'hostel',
