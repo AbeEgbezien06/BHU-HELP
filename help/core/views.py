@@ -26,6 +26,6 @@ def signup(request):
             return redirect('/login/')
     else:
         form = SignupForm
-    return render(request, 'marketplace/signup.html', {
+    return render(request, 'core/login.html', {
         'form':form
     })
