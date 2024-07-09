@@ -26,7 +26,10 @@ class CategoryComplaint(models.Model):
 class Complaint(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=255)
-    date_added = models.DateTimeField(auto_now_add=True)
+    category = models.ForeignKey(CategoryComplaint, related_name="complaints", on_delete=models.CASCADE)
+    date_added = models.DateField(auto_now_add=True)
+    hostel = models.CharField(max_length=10, choices=MY_CHOICES, blank=True, null= True)
+    mark_as_done = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = 'complaints'
