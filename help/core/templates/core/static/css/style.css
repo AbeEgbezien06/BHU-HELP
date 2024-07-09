@@ -3,9 +3,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url(gabe.jpg);
-    background-repeat: no-repeat;
-   
+    background-image: url();
+    background-repeat: no-repeat; 
     
 }
 
@@ -294,4 +293,8 @@ form
 }
 .log_header{
     color: #fff;
+}
+
+header .logo img {
+  height: 50px; /* Adjust as needed */
 }
