@@ -1,8 +1,8 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from .models import *
+from .models import Complaint, CategoryComplaint
+from django import forms
 
-# Register Models here
-app_name = 'core'
-admin.site.register(CategoryComplaint)
+
+
 admin.site.register(Complaint)
+admin.site.register(CategoryComplaint)
