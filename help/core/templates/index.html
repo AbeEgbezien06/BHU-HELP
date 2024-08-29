@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Pending {% endblock %}
+
+{% block content %} 
+<div class="header container md:mx-auto py-4">
+    <h1 class="text-4xl text-center">
+        Pending Issues
+    </h1>
+</div>
+
+<div class="container md:mx-auto place-items-center px-3, py-2, rounded-lg">
+    {% for item in complaints_json %}
+    <a href="#">
+        <div class="container px-5 py-4 bg-green-400 rounded-2xl md:mx-5 my-4">
+
+            <h1 class="my-auto text-black">Issue: </h1><h3 class="lead text-base text-xl text-bold">{{ item.name }}</h3>
+            <h1 class="my-auto text-black">Description: </h1><p class="lead text-base text-xl">{{ item.description }}</p>
+            <p class="lead text-md text-base">{{ item.date_added }}</p>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% load static %}
+<!-- <script src="{% static 'js/complaints.js' %}"></script> -->
+{% endblock %}
+

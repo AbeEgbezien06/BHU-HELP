@@ -1,45 +1,34 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.models import User
 
-class LoginForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder':'Your Username',
-        'class':' py-4 px-6 rounded-xl'
-    }))
-        
-    password = forms.CharField(widget=forms.PasswordInput(attrs={
-        'placeholder':'Password',
-        'class':' py-4 px-6 rounded-xl'
-    }))
+from .models import Complaint
 
+CLASSES = 'w-full py-4 px-6 rounded-xl border mb-2'
 
-
-
-
-class SignupForm(UserCreationForm):
+class ComplaintForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ('username', 'email', 'password1', 'password2')
-    
-    username = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder':'Your Username',
-        'class':' py-4 px-6 rounded-xl'
-    }))
+        model = Complaint
+        fields = (
+            'name',
+            'description',
+            'category',
+            'hostel',
+            'block',
+        )
 
-    email = forms.CharField(widget=forms.EmailInput(attrs={
-        'placeholder':'Your Email',
-        'class':' py-4 px-6 rounded-xl'
-    }))
-
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={
-        'placeholder':'Password',
-        'class':' py-4 px-6 rounded-xl'
-    }))
-
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={
-        'placeholder':'Retype Password',
-        'class':' py-4 px-6 rounded-xl'
-    }))
-
-
+    widgets = {
+            'category':forms.Select(attrs={
+                'class':CLASSES
+            }),
+            'name':forms.TextInput(attrs={
+                'class':CLASSES
+            }),
+            'description':forms.Textarea(attrs={
+                'class':CLASSES
+            }),
+            'hostel':forms.Select(attrs={
+                'class':CLASSES
+            }),
+            'block':forms.Select(attrs={
+                'class':CLASSES
+            }),
+        }
