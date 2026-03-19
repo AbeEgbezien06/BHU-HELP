@@ -20,7 +20,8 @@ class ComplaintSerializer(serializers.ModelSerializer):
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    complaint = ComplaintSerializer(many=True)
+    complaints = ComplaintSerializer(many=True, read_only=True)
+
     class Meta:
         model = CategoryComplaint
         fields = (
@@ -28,4 +29,5 @@ class CategorySerializer(serializers.ModelSerializer):
             'cat_name',
             'cat_desc',
             'get_absolute_url',
-        )  
+            'complaints',
+        )

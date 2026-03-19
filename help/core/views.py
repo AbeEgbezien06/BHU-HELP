@@ -39,27 +39,29 @@ class ComplaintDetail(APIView):
     
 
 
-class  CategoryDetail(APIView):
-    def get_oblect(self, category_slug):
+class CategoryDetail(APIView):
+    def get_object(self, category_slug):
         try:
             return CategoryComplaint.objects.get(slug=category_slug)
         except CategoryComplaint.DoesNotExist:
             raise Http404
-        
+
     def get(self, request, category_slug):
-        category = self.get_oblect(category_slug)
+        category = self.get_object(category_slug)
         serializer = CategorySerializer(category)
         return Response(serializer.data)
-    
-@api_view(['POST'],)
+
+
+@api_view(['GET', 'POST'])
 def newItemForm(request):
     if request.method == 'POST':
         form = ComplaintForm(request.POST)
-        if form.is_valid:
-            item  = form.save(commit=False)
+        if form.is_valid():
+            item = form.save(commit=False)
             item.save()
-        else:
-            form = ComplaintForm()
+            # Redirect or some success message could be added here
+    else:
+        form = ComplaintForm()
     return render(request, 'newissue.html', {
-        'form':form
+        'form': form
     })
