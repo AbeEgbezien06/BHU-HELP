@@ -15,20 +15,20 @@ class ComplaintForm(forms.ModelForm):
             'block',
         )
 
-    widgets = {
-            'category':forms.Select(attrs={
-                'class':CLASSES
+        widgets = {
+            'category': forms.Select(attrs={
+                'class': CLASSES
             }),
-            'name':forms.TextInput(attrs={
-                'class':CLASSES
+            'name': forms.TextInput(attrs={
+                'class': CLASSES
             }),
-            'description':forms.Textarea(attrs={
-                'class':CLASSES
+            'description': forms.Textarea(attrs={
+                'class': CLASSES
             }),
-            'hostel':forms.Select(attrs={
-                'class':CLASSES
+            'hostel': forms.Select(attrs={
+                'class': CLASSES
             }),
-            'block':forms.Select(attrs={
-                'class':CLASSES
+            'block': forms.Select(attrs={
+                'class': CLASSES
             }),
         }
